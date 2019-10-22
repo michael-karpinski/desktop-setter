@@ -8,7 +8,7 @@ A simple desktop application that finds a beautiful, crisp photo and sets it as 
 Python 3+ and PyQt5 are required.
 From root directory run directly with: `python3 gui.py`
 
-If you missing modules errors are encountered:
+If missing modules errors are encountered:
 
 -upgrade pip:
 `python -m pip install –upgrade pip`
