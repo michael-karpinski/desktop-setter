@@ -1,3 +1,5 @@
+"""Finds desktop environment and sets wallpaper."""
+
 import subprocess
 import sys
 import os
