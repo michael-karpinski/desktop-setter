@@ -1,0 +1,24 @@
+"""Loads GUI and starts application."""
+
+import sys
+from PyQt5 import QtWidgets, uic
+from back_end.main import run
+
+
+class GUI():
+    """User interface."""
+
+    def __init__(self):
+        self.app = QtWidgets.QApplication([])
+        self.win = uic.loadUi('main.ui')
+        self.set_listeners()
+        self.win.show()
+        sys.exit(self.app.exec_())
+
+    def set_listeners(self):
+        """Sets event listeners."""
+        self.win.confirm_button.clicked.connect(run)
+
+
+if __name__ == "__main__":
+    GUI()

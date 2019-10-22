@@ -1,21 +1,17 @@
 """Nature Desktop (name is a WIP). Creates beautiful desktop backgrounds by searching through
 r/EarthPorn and finding a recent image whose resolution is close to your desktop's."""
 
-import json
 import sys
 import os
-
 import requests
 
-from platforms.lxde import LXDE
+import back_end.img_functions as img_functions
+from platforms import lxde
 
 
 def get_desktop_environment():
     """Determines user's desktop environment and returns an instantiated object."""
-    # From http://stackoverflow.com/questions/2035657/what-is-my-current-desktop-environment
-    # and http://ubuntuforums.org/showthread.php?t=652320
-    # and http://ubuntuforums.org/showthread.php?t=652320
-    # and http://ubuntuforums.org/showthread.php?t=1139057
+    # http://stackoverflow.com/questions/2035657/what-is-my-current-desktop-environment
     if sys.platform in ["win32", "cygwin"]:
         return "Windows"
     if sys.platform == "darwin":
@@ -25,7 +21,7 @@ def get_desktop_environment():
     if desktop_session is not None:
         desktop_session = desktop_session.lower()
         if desktop_session == 'lxde':
-            return LXDE()
+            return lxde
         if desktop_session in ["gnome", "unity", "cinnamon", "mate", "xfce4",
                                "fluxbox", "blackbox", "openbox", "icewm",
                                "jwm", "afterstep", "trinity", "kde"]:
@@ -53,19 +49,6 @@ def get_desktop_environment():
     return "unknown"
 
 
-def get_images():
-    """Fetches a list of recent images from r/EarthPorn"""
-    # gather information from reddit API
-    request_url = 'https://www.reddit.com/r/EarthPorn/top/.json?limit=20'
-    result = requests.get(request_url, headers={'User-agent': 'nature-dt'})
-    response = json.loads(result.text)
-
-    if "error" in response:
-        print('Error ' + str(response["error"]) + '. ' + response["message"])
-        return 1
-    return response["data"]["children"]
-
-
 def download_image(url):
     """Saves image from URL to cwd."""
     data = requests.get(url).content
@@ -76,6 +59,11 @@ def download_image(url):
 def run():
     """Determines platform, finds and downloads appropriate image, and sets desktop background."""
     platform = get_desktop_environment()
-    img = platform.find_most_compatible(get_images())
-    download_image(img)
+    img_url = img_functions.get_image_url()
+    download_image(img_url)
     platform.set_background()
+
+
+if __name__ == '__main__':
+    run()
+    sys.exit()
