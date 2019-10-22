@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Nature Desktop (Name WIP)</string>
+   <string>Desktop Setter (WIP)</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
