@@ -4,15 +4,21 @@ import curses
 import json
 import requests
 SCR = curses.initscr()
+SCR_HEIGHT, SCR_WIDTH = SCR.getmaxyx()
+SCREEN_RESOLUTION_RATOI = SCR_WIDTH/SCR_HEIGHT
 
 
 def get_image_url():
-    """Finds image with closest ratio to desktop."""
+    """Finds image with closest ratio to desktop and returns its URL."""
     imgs = sorted(get_images(), key=lambda k: image_ratio(k))
-    most_compatible = min(
-        imgs, key=lambda x: abs(image_ratio(
-            x)-screen_resolution_ratio())
-    )
+    most_compatible = imgs[0]
+    for img in imgs:
+        if (img['data']['preview']['images'][0]['source']['width'] > SCR_WIDTH and
+                img['data']['preview']['images'][0]['source']['height'] > SCR_HEIGHT):
+            ratio_difference = abs(image_ratio(img) - SCREEN_RESOLUTION_RATOI)
+            if ratio_difference < abs(image_ratio(most_compatible) - SCREEN_RESOLUTION_RATOI):
+                most_compatible = img
+
     url = most_compatible['data']['url']
 
     if len(url.split('.')[-1]) != 3 and url.split('.')[-1] != 'com':
@@ -25,12 +31,6 @@ def image_ratio(image):
     """Finds width/height ratio of given image."""
     width = image['data']['preview']['images'][0]['source']['width']
     height = image['data']['preview']['images'][0]['source']['height']
-    return width/height
-
-
-def screen_resolution_ratio():
-    """Finds width/height ratio of desktop."""
-    height, width = SCR.getmaxyx()
     return width/height
 
 
