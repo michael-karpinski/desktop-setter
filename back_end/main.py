@@ -5,8 +5,12 @@ import sys
 import os
 import requests
 
-import back_end.img_functions as img_functions
-from back_end import wallpaper
+try:
+    import back_end.img_functions as img_functions
+    from back_end import wallpaper
+except ImportError:
+    import img_functions
+    import wallpaper
 
 
 def download_image(url):
