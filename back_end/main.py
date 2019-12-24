@@ -23,7 +23,7 @@ def download_image(url):
 def run():
     """Determines platform, finds and downloads appropriate image, and sets desktop background."""
     download_image(img_functions.get_image_url())
-    wallpaper.set_wallpaper(os.path.abspath('img.jpg'))
+    wallpaper.change_background(os.path.abspath('img.jpg'))
 
 
 if __name__ == '__main__':
