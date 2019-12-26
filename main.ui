@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>125</height>
+    <width>500</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
-	background: rgb(46, 52, 54)
+	background: rgb(32, 74, 135)
 }
 
 QLabel {
@@ -41,6 +41,14 @@ QGridLayout QPushButton {
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Sans Serif</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="text">
       <string>This application will change your desktop background. Continue?</string>
      </property>
@@ -59,22 +67,58 @@ QGridLayout QPushButton {
      </property>
      <item row="0" column="1">
       <widget class="QPushButton" name="no_button">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>120</width>
          <height>16777215</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Sans Serif</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(85, 87, 83);
+        <string notr="true">QPushButton {
+background-color: rgb(70,70,70);
 color: white;
 border-style: outset;
 border-width: 1px;
 border-color: white;
-height: 25px;</string>
+height: 30px;
+}
+
+QPushButton:hover {
+background-color: rgb(60,60,60);
+}
+
+QPushButton:pressed {
+background-color: rgb(50,50,50);
+}</string>
        </property>
        <property name="text">
         <string>No</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
        <property name="flat">
         <bool>false</bool>
@@ -91,23 +135,47 @@ height: 25px;</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>120</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Sans Serif</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(85, 87, 83);
+        <string notr="true">QPushButton {
+background-color: rgb(70,70,70);
 color: white;
 border-style: outset;
 border-width: 1px;
 border-color: white;
-height: 25px;</string>
+height: 30px;
+}
+
+QPushButton:hover {
+background-color: rgb(60,60,60);
+}
+
+QPushButton:pressed {
+background-color: rgb(50,50,50);
+}</string>
        </property>
        <property name="text">
         <string>Yes</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
        <property name="default">
         <bool>false</bool>

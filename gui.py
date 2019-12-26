@@ -1,6 +1,7 @@
 """Loads GUI and starts application."""
 
 import sys
+import os
 from PyQt5 import QtWidgets, uic
 from back_end.main import run
 
@@ -13,6 +14,7 @@ class GUI():
         self.win = uic.loadUi('main.ui')
         self.set_listeners()
         self.win.show()
+        os.system('stty sane')
         sys.exit(self.app.exec_())
 
     def set_listeners(self):
