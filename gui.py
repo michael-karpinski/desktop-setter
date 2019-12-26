@@ -18,6 +18,7 @@ class GUI():
     def set_listeners(self):
         """Sets event listeners."""
         self.win.confirm_button.clicked.connect(run)
+        self.win.no_button.clicked.connect(sys.exit)
 
 
 if __name__ == "__main__":
