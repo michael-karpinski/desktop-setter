@@ -25,17 +25,33 @@
   <property name="windowTitle">
    <string>Desktop Setter (WIP)</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
-	background: rgb(32, 74, 135)
+background-color: rgb(52, 101, 164)
 }
 
 QLabel {
-	color: white;
+color: white;
 }
 
-QGridLayout QPushButton {
-	background-color: green;
+QPushButton {
+background-color: rgb(70,70,70);
+color: white;
+border-style: outset;
+border-width: 1px;
+border-color: white;
+height: 30px;
+}
+
+QPushButton:hover {
+background-color: rgb(60,60,60);
+}
+
+QPushButton:pressed {
+background-color: rgb(50,50,50);
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -48,6 +64,9 @@ QGridLayout QPushButton {
        <weight>50</weight>
        <bold>false</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>This application will change your desktop background. Continue?</string>
@@ -91,22 +110,7 @@ QGridLayout QPushButton {
         <enum>Qt::ClickFocus</enum>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {
-background-color: rgb(70,70,70);
-color: white;
-border-style: outset;
-border-width: 1px;
-border-color: white;
-height: 30px;
-}
-
-QPushButton:hover {
-background-color: rgb(60,60,60);
-}
-
-QPushButton:pressed {
-background-color: rgb(50,50,50);
-}</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>No</string>
@@ -151,22 +155,7 @@ background-color: rgb(50,50,50);
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {
-background-color: rgb(70,70,70);
-color: white;
-border-style: outset;
-border-width: 1px;
-border-color: white;
-height: 30px;
-}
-
-QPushButton:hover {
-background-color: rgb(60,60,60);
-}
-
-QPushButton:pressed {
-background-color: rgb(50,50,50);
-}</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Yes</string>
