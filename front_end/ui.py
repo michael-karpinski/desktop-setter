@@ -20,6 +20,9 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
         Dialog.setSizePolicy(sizePolicy)
         Dialog.setMaximumSize(QtCore.QSize(750, 200))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("QDialog {\n"
 "background-color: rgb(52, 101, 164)\n"
@@ -111,7 +114,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Desktop Setter (WIP)"))
+        Dialog.setWindowTitle(_translate("Dialog", "Desktop Setter"))
         self.label.setText(_translate("Dialog", "This application will change your desktop background. Continue?"))
         self.no_button.setText(_translate("Dialog", "No"))
         self.confirm_button.setText(_translate("Dialog", "Yes"))
