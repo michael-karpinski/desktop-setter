@@ -4,13 +4,8 @@ r/EarthPorn and finding a recent image whose resolution is close to your desktop
 import sys
 import os
 import requests
-
-try:
-    import back_end.img_functions as img_functions
-    from back_end import wallpaper
-except ImportError:
-    import img_functions
-    import wallpaper
+import back_end.img_functions as img_functions
+from back_end import wallpaper
 
 
 def download_image(url):
