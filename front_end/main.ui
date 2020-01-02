@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>640</width>
     <height>200</height>
    </rect>
   </property>
@@ -16,9 +16,15 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>200</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
-    <width>750</width>
+    <width>640</width>
     <height>200</height>
    </size>
   </property>
@@ -34,7 +40,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
-background-color: rgb(52, 101, 164)
+background-color: rgb(90, 90, 90);
 }
 
 QLabel {
@@ -42,20 +48,18 @@ color: white;
 }
 
 QPushButton {
-background-color: rgb(70,70,70);
+background-color: rgb(60, 60, 60);
 color: white;
 border-style: outset;
-border-width: 1px;
-border-color: white;
-height: 30px;
+height: 35px;
 }
 
 QPushButton:hover {
-background-color: rgb(60,60,60);
+background-color: rgb(50, 50, 50);
 }
 
 QPushButton:pressed {
-background-color: rgb(50,50,50);
+background-color: rgb(40, 40, 40);
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -85,54 +89,9 @@ background-color: rgb(50,50,50);
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <property name="spacing">
+     <property name="verticalSpacing">
       <number>0</number>
      </property>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="no_button">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>120</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Sans Serif</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>No</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="confirm_button">
        <property name="sizePolicy">
@@ -158,6 +117,9 @@ background-color: rgb(50,50,50);
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
        </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
        <property name="styleSheet">
         <string notr="true"/>
        </property>
@@ -177,6 +139,89 @@ background-color: rgb(50,50,50);
         <bool>false</bool>
        </property>
       </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="no_button">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>120</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Sans Serif</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>No</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>120</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
