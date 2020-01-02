@@ -3,23 +3,42 @@ r/EarthPorn and finding a recent image whose resolution is close to your desktop
 
 import sys
 import os
+import datetime
 import requests
+from PyQt5 import QtWidgets
 import back_end.img_functions as img_functions
 from back_end import wallpaper
+
+
+def run():
+    """Determines platform, finds and downloads appropriate image, and sets desktop background."""
+    file_name = download_image(img_functions.get_image_url())
+    sys.exit(wallpaper.change_background(os.path.abspath(file_name)))
 
 
 def download_image(url):
     """Saves image from URL to cwd."""
     data = requests.get(url).content
-    with open('img.jpg', 'wb') as handler:
+    file_path = get_file_path(url)
+    with open(file_path, 'wb') as handler:
         handler.write(data)
+    return file_path
 
 
-def run():
-    """Determines platform, finds and downloads appropriate image, and sets desktop background."""
-    download_image(img_functions.get_image_url())
-    sys.exit(wallpaper.change_background(os.path.abspath('img.jpg')))
-
-
-if __name__ == '__main__':
-    run()
+def get_file_path(url):
+    """Determines file path to save data to."""
+    try:
+        with open('folder.txt', 'r') as file_obj:
+            folder = file_obj.read()
+    except FileNotFoundError:
+        folder = str(QtWidgets.QFileDialog.getExistingDirectory(
+            None, 'Select Directory', options=QtWidgets.QFileDialog.DontUseNativeDialog))
+        with open('folder.txt', 'w') as file_obj:
+            file_obj.write(folder)
+    file_name = folder + os.path.sep + \
+        datetime.datetime.now().strftime('%d-%b-%Y_%H:%M:%S') + '.'
+    try:
+        file_name += url.split('.')[-1][:4]
+    except Exception:
+        file_name += 'png'
+    return file_name

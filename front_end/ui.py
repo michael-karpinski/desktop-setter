@@ -34,18 +34,18 @@ class Ui_Dialog(object):
 "}\n"
 "\n"
 "QPushButton {\n"
-"background-color: rgb(70, 70, 70);\n"
+"background-color: rgb(60, 60, 60);\n"
 "color: white;\n"
 "border-style: outset;\n"
 "height: 35px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"background-color: rgb(60, 60, 60);\n"
+"background-color: rgb(50, 50, 50);\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"background-color: rgb(50, 50, 50);\n"
+"background-color: rgb(40, 40, 40);\n"
 "}")
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")

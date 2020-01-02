@@ -2,7 +2,7 @@
 
 import sys
 import os
-from PyQt5 import QtWidgets, QtGui
+from PyQt5 import QtWidgets
 from back_end.main import run
 import front_end.ui as ui
 
@@ -14,13 +14,8 @@ class GUI(QtWidgets.QDialog, ui.Ui_Dialog):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle('Desktop Setter')
-        self.set_icon()
         self.set_listeners()
         self.show()
-
-    def set_icon(self):
-        icon = QtGui.QIcon('icon.png')
-        self.setWindowIcon(icon)
 
     def set_listeners(self):
         """Sets event listeners."""
@@ -29,6 +24,7 @@ class GUI(QtWidgets.QDialog, ui.Ui_Dialog):
 
 
 def main():
+    """Runs GUI."""
     os.system('stty sane')
     app = QtWidgets.QApplication([])
     win = GUI()

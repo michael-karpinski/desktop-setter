@@ -21,9 +21,6 @@ def get_image_url():
 
     url = most_compatible['data']['url']
 
-    if len(url.split('.')[-1]) != 3 and url.split('.')[-1] != 'com':
-        url = url + '.jpg'
-
     return url
 
 
