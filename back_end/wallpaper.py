@@ -3,13 +3,7 @@
 import os
 import platform
 
-# OLD SOLUTIONS. #
-# http://stackoverflow.com/questions/2035657/what-is-my-current-desktop-environment
-# https://stackoverflow.com/questions/1977694/how-can-i-change-my-desktop-background-with-python
-# - Martin Hansen
-
-# CURRENT SOLUTION. #
-# https://github.com/Thomas9292/nasa-background
+# Code from https://github.com/Thomas9292/nasa-background/blob/master/tools/background.py
 
 
 def change_background(file_path):
@@ -19,11 +13,11 @@ def change_background(file_path):
     try:
         # Detect operating system and defer to specific function
         if platform.system().lower().startswith('win'):
-            change_windows_background(file_path)
+            _change_windows_background(file_path)
         elif platform.system().lower().startswith('lin'):
-            change_linux_background(file_path)
+            _change_linux_background(file_path)
         elif platform.system().lower().startswith('dar'):
-            change_mac_background(file_path)
+            _change_mac_background(file_path)
 
     except Exception as e:
         print(
@@ -31,7 +25,7 @@ def change_background(file_path):
         )
 
 
-def change_windows_background(file_path):
+def _change_windows_background(file_path):
     """
     Change the background on windows operating systems
     """
@@ -42,7 +36,7 @@ def change_windows_background(file_path):
                                                file_path, 1)
 
 
-def change_linux_background(file_path):
+def _change_linux_background(file_path):
     """
     Change the background on Linux operating systems
     """
@@ -83,7 +77,7 @@ def change_linux_background(file_path):
     subprocess.call(pargs)
 
 
-def change_mac_background(file_path):
+def _change_mac_background(file_path):
     """
     Change the background on Mac operating systems
     """
