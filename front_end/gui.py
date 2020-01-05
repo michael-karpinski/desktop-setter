@@ -1,7 +1,7 @@
 """Loads GUI and starts application."""
 
 import sys
-import os
+import threading
 from PyQt5 import QtWidgets
 from back_end.main import run
 import front_end.ui as ui
@@ -17,6 +17,10 @@ class GUI(QtWidgets.QDialog, ui.Ui_Dialog):
         self.set_listeners()
         self.show()
 
+    def start_backend(self):
+        main_thread = threading.Thread(target=run)
+        main_thread.start()
+
     def set_listeners(self):
         """Sets event listeners."""
         self.confirm_button.clicked.connect(run)
@@ -25,7 +29,6 @@ class GUI(QtWidgets.QDialog, ui.Ui_Dialog):
 
 def main():
     """Runs GUI."""
-    os.system('stty sane')
     app = QtWidgets.QApplication([])
     win = GUI()
     sys.exit(app.exec_())

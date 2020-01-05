@@ -14,6 +14,7 @@ FILE_EXTENSIONS = ['.jpg', '.png']
 
 def run():
     """Determines platform, finds and downloads appropriate image, and sets desktop background."""
+    os.system('stty sane')
     url = get_image_url()
     file_path = _download_image(url)
     change_background(file_path)

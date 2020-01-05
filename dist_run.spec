@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['front_end/gui.py'],
+a = Analysis(['dist_run.py'],
              pathex=['/home/madmin/projects/desktop-setter'],
              binaries=[],
              datas=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='DesktopSetter',
+          name='dist_run',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
