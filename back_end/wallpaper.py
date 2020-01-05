@@ -1,4 +1,4 @@
-"""Finds desktop environment and sets wallpaper."""
+"""Sets desktop background to specified image."""
 
 import os
 import platform
