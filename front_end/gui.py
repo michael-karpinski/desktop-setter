@@ -23,7 +23,7 @@ class GUI(QtWidgets.QDialog, ui.Ui_Dialog):
 
     def set_listeners(self):
         """Sets event listeners."""
-        self.confirm_button.clicked.connect(run)
+        self.confirm_button.clicked.connect(self.start_backend)
         self.no_button.clicked.connect(sys.exit)
 
 
