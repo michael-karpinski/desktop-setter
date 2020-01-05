@@ -2,7 +2,6 @@
 r/EarthPorn and finding a recent image whose resolution is close to your desktop's."""
 
 import sys
-import os
 import datetime
 import requests
 from PyQt5 import QtWidgets
@@ -33,7 +32,7 @@ def _get_file_path(url):
     """Determines file path to save image to."""
     folder = _get_directory()
     datetime_string = datetime.datetime.now().strftime('%d-%b-%Y_%H:%M:%S')
-    file_name = folder + os.path.sep + datetime_string + _get_extension(url)
+    file_name = folder + '/' + datetime_string + _get_extension(url)
     return file_name
 
 
