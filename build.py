@@ -3,4 +3,4 @@
 import os
 
 os.system('rm -rf build dist')
-os.system('pyinstaller gui.spec --onefile')
+os.system('pyinstaller gui.spec')
